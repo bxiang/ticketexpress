@@ -1,0 +1,111 @@
+<div class="tx-title-bar">
+  Ticket #: TX-{{ticket.number}} &nbsp;&nbsp;<a href="#/edit/{{ticket.id}}" ><img src="/assets/images/edit.png" alt="Edit ticket" /></a>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Summary</dt>
+  <dd>{{ticket.summary}}</dd>
+</dl>
+<dl class="dl-horizontal">
+  <dt>Detail</dt>
+  <dd>{{ticket.detail}}</dd>
+</dl>
+<dl class="dl-horizontal">
+  <dt>Type</dt>
+  <dd>{{ticket.ticketType}}</dd>
+</dl>
+<dl class="dl-horizontal">
+  <dt>Status</dt>
+  <dd>{{ticket.status}}</dd>
+</dl>
+<dl class="dl-horizontal">
+  <dt>Assignee</dt>
+  <dd>{{ticket.assignee.firstname}} {{ticket.assignee.lastname}}</dd>
+</dl>
+<dl class="dl-horizontal">
+  <dt>Priority</dt>
+  <dd>{{ticket.priority}}</dd>
+</dl>
+<dl class="dl-horizontal">
+  <dt>Severity</dt>
+  <dd>{{ticket.severity}}</dd>
+</dl>
+<dl class="dl-horizontal">
+  <dt>Progress</dt>
+  <dd>{{ticket.progress}}</dd>
+</dl>
+<dl class="dl-horizontal">
+  <dt>Created by</dt>
+  <dd>{{ticket.reporter.firstname}} {{ticket.reporter.lastname}}</dd>
+</dl>
+<dl class="dl-horizontal">
+  <dt>Created date</dt>
+  <dd>{{ticket.created}}</dd>
+</dl>
+<dl class="dl-horizontal">
+  <dt>Last updated</dt>
+  <dd>{{ticket.updated}}</dd>
+</dl>
+
+<div class="tx-title-bar">
+  Attachments &nbsp;&nbsp;<a href="" ng-click="openCommentDialog()"><img src="/assets/images/add_doc.png" alt="Attach file" /></a>
+  <div id="file-uploader" class="span5">
+
+    <noscript>
+      <p>Please enable JavaScript to use file uploader.</p>
+      <!-- or put a simple form for upload here -->
+    </noscript>
+
+    <script>
+      function createUploader() {
+        var uploader = new qq.FileUploader({
+          element : document.getElementById('file-uploader'),
+          action : '/api/tAttachment',
+          params: {
+            id: '518ef3e8058aa8295ea850a3'
+          },
+          debug : true
+        });
+      }
+
+      // in your app create uploader as soon as the DOM is ready
+      // don't wait for the window to load
+      window.onload = createUploader;
+    </script>
+  </div>
+</div>
+<table class="table">
+  <tbody>
+  <tr ng-repeat="file in ticket.files">
+    <td>
+      <span><a href="/api/tAttachment/{{file.id}}">{{file.filename}}</a></span>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="tx-title-bar">
+  Comments &nbsp;&nbsp;<a href="" ng-click="openCommentDialog()"><img src="/assets/images/add.png" alt="Add comment" /></a>
+</div>
+<table class="table">
+  <tbody>
+  <tr ng-repeat="history in ticket.histories">
+    <td>
+      <span>{{history.user}} - {{history.log}}</span>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<div modal="commentDialogOpen" close="closeCommentDialog()" options="commentDialogOptions">
+    <div class="modal-header">
+      <h4>Add Comment</h4>
+    </div>
+    <div class="modal-body">
+      <textarea name="comment" class="tx-input-comment" rows="8" ng-model="comment"></textarea>
+    </div>
+    <div class="modal-footer">
+      <button ng-click="addComment()" ng-disabled="!comment" class="btn btn-primary"><i class="icon-ok icon-white"></i> Submit</button>
+      <button class="btn cancel" ng-click="closeCommentDialog()"><i class="icon-stop"></i> Cancel</button>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+/* app css stylesheet */
+
+.tx-input-comment {
+  	width: 510px;
+}
+
+.tx-title-bar {
+	padding: 7px 20px;
+	border: 1px solid #DDDDDD;
+	font-weight: bold;
+	background-color: #DEEBF7;
+}
+

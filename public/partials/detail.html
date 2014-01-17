@@ -1,0 +1,76 @@
+<form name="ticketForm">
+  <div class="row">
+    <div class="control-group span3">
+      <label>Number</label>
+      <input class="input-small" type="text" name="number" value=TX-{{ticket.number}} readonly>
+    </div> 
+
+    <div class="control-group span3">
+      <label>Type</label>
+      <select class="input-medium" ng-model="ticket.ticketType" ng-options="type for type in lookup.types" required></select>
+    </div>
+
+    <div class="control-group span3">
+      <label>Status</label>
+      <select class="input-medium" ng-model="ticket.status" ng-options="status for status in lookup.statues" required></select>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="control-group span9" ng-class="{error: ticketForm.summary.$invalid}">
+      <label>Summary</label>
+      <input type="text" name="summary" class="input-xxlarge" ng-model="ticket.summary" required>
+      <span ng-show="ticketForm.summary.$error.required" class="help-inline">
+          Required</span>
+    </div>
+  </div> 
+
+  <div class="row">
+    <div class="span9">
+      <label>Detail</label>
+      <textarea name="detail" class="input-xxlarge" rows="10" ng-model="ticket.detail"></textarea>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="control-group span3">
+      <label>Assignee</label>
+      <select class="input-medium" ng-model="ticket.assignee.id" ng-options="assignee.id as assignee.firstname + ' ' + assignee.lastname for assignee in lookup.assignees" ng-change="setAssignee()"></select>
+    </div>
+ 
+    <div class="control-group span2">
+      <label>Priority</label>
+      <select class="input-small" ng-model="ticket.priority" ng-options="priority for priority in lookup.priorities" required></select>
+    </div>
+ 
+    <div class="control-group span2">
+      <label>Severity</label>
+      <select class="input-small" ng-model="ticket.severity" ng-options="severity for severity in lookup.severities" required></select>
+    </div>
+
+    <div class="control-group span2">
+      <label>Progress</label>
+      <input type="number" name="progress" class="input-small" ng-model="ticket.progress">
+    </div>
+  </div>
+
+  <button ng-click="save()" ng-disabled="ticketForm.$invalid"
+          class="btn btn-primary"><i class="icon-ok icon-white"></i> Save</button>
+  <button ng-click="openDeleteDialog()"
+          ng-show="ticket.id" class="btn btn-primary"><i class="icon-trash icon-white"></i> Delete</button>
+  <a href="" ng-click="cancel()" class="btn"><i class="icon-stop"></i> Cancel</a>
+
+  <div modal="deleteDialogOpen" close="closeDeleteDialog()" options="deleteDialogOptions">
+      <div class="modal-header">
+        <h4>Please confirm</h4>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete the ticket?</p>
+      </div>
+      <div class="modal-footer">
+        <button ng-click="delete()" class="btn btn-primary"><i class="icon-trash icon-white"></i> Delete</button>
+        <button class="btn cancel" ng-click="closeDeleteDialog()"><i class="icon-stop"></i> Cancel</button>
+      </div>
+  </div>
+
+</form>

@@ -1,0 +1,24 @@
+<h3>Singup</h3>
+<p>Singup to reveive our free great email alert service. You will be notified whenever there is anything matches your criteria.</p>
+<form name="signupForm">
+  <div class="control-group">
+    <label>Email</label>
+    <input class="input-xlarge" type="email" name="email" ng-model="user.email" required>
+    <span ng-show="signupForm.email.$error.required" class="help-inline">Required</span>
+  </div> 
+
+  <div class="control-group">
+    <label>First name</label>
+    <input class="input-xlarge" type="text" name="firstname" ng-model="user.firstname">
+  </div> 
+
+  <div class="control-group">
+    <label>Last name</label>
+    <input class="input-xlarge" type="text" name="lastname" ng-model="user.lastname">
+  </div> 
+
+  <button ng-click="signup()" ng-disabled="signupForm.$invalid"
+          class="btn btn-primary"><i class="icon-ok icon-white"></i> Signup</button>
+  <a href="#/" class="btn"><i class="icon-stop"></i> Cancel</a>
+
+</form>

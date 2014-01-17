@@ -1,0 +1,17 @@
+
+# User
+GET      /user                                   controllers.api.UserController.index()
+POST     /user                                   controllers.api.UserController.create()
+GET      /user/:id                               controllers.api.UserController.view(id: ObjectId)
+PUT      /user/:id                               controllers.api.UserController.update(id: ObjectId)
+DELETE   /user/:id                               controllers.api.UserController.delete(id: ObjectId)
+
+GET      /ticket                                 controllers.api.TicketSlimController.index(p:Int ?= 1, s:Int ?= 2, f ?= "")
+POST     /ticket                                 controllers.api.TicketController.create()
+GET      /ticket/:id                             controllers.api.TicketController.view(id: ObjectId)
+PUT      /ticket/:id                             controllers.api.TicketController.update(id: ObjectId)
+DELETE   /ticket/:id                             controllers.api.TicketSlimController.delete(id: ObjectId)
+
+POST	 /tAttachment						     controllers.api.TicketController.upload(id: ObjectId)
+GET 	 /tAttachment/:file						 controllers.api.TicketController.getFile(file: ObjectId)
+

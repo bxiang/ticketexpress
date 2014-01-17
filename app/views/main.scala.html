@@ -1,0 +1,144 @@
+@(content: Html)
+
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <title>Ticket eXpress</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="Brian Xiang">
+
+  <link rel="stylesheet" href='@routes.Assets.at("bootstrap/css/bootstrap.css")'>
+  <style type="text/css">
+
+    /* Sticky footer styles
+    -------------------------------------------------- */
+    html,
+    body {
+      height: 100%;
+      /* The html and body elements cannot have any padding or margin. */
+    }
+
+    /* Wrapper for page content to push down footer */
+    #wrap {
+      min-height: 100%;
+      height: auto !important;
+      height: 100%;
+      /* Negative indent footer by it's height */
+      margin: 0 auto -60px;
+    }
+
+    /* Set the fixed height of the footer here */
+    #push,
+    #footer {
+      height: 60px;
+    }
+    #footer {
+      background-color: #f5f5f5;
+    }
+
+    /* Lastly, apply responsive CSS fixes as necessary */
+    @@media (max-width: 767px) {
+      #footer {
+        margin-left: -20px;
+        margin-right: -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+
+    /* Custom page CSS
+    -------------------------------------------------- */
+    /* Not required for template or sticky footer method. */
+
+    #wrap > .container {
+      padding-top: 60px;
+    }
+    .container .credit {
+      margin: 20px 0;
+    }
+
+    code {
+      font-size: 80%;
+    }
+
+  </style>
+  <link rel="stylesheet" href='@routes.Assets.at("bootstrap/css/bootstrap-responsive.css")'>
+  <link rel="stylesheet" href='@routes.Assets.at("stylesheets/app.css")'/>
+  <link rel="shortcut icon" href='@routes.Assets.at("images/favicon.png")'>
+</head>
+<body>
+  <div id="wrap">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <a class="brand" href="/">Ticket eXpress</a>
+
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li><a href="/">My Ticket</a></li>
+                        <li><a href="/#/new">New Ticket</a></li>
+                        <li><a href="@routes.Application.list()">Computers</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                Tools <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#/new">Upload File 1</a></li>
+                                <li><a href="#/new">XHR File Upload</a></li>
+                                <li><a href="/api/ticket">Tickets(JSON)</a></li>
+                                <li><a href="/api/user">Users(JSON)</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav pull-right">
+                        <li><a href="#" target="_blank">Login</a></li>
+                        <li><a href="/#/signup">Signup</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @content
+
+    <div id="push"></div>
+  </div>
+
+  <div id="footer">
+      <div class="container">
+          <div class="row">
+              <div class="span12">
+                  <p>
+                    Ticket eXpress V1.0 by <a href="">Brian Xiang</a> 
+                    <span id="totop" class="pull-right">Back to Top <i class="icon-arrow-up"></i></span>
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+  -->
+  <script src='@routes.Assets.at("lib/jquery-1.8.2.min.js")'></script>
+  <script src='@routes.Assets.at("bootstrap/js/bootstrap.min.js")'></script>
+  <script src='@routes.Assets.at("angular/angular.js")'></script>
+  <script src='@routes.Assets.at("angular/angular-resource.js")'></script>
+  <script src='@routes.Assets.at("angular/ui-bootstrap-tpls-0.2.0.js")'></script>
+  <script src='@routes.Assets.at("lib/fileuploader.js")'></script>
+  <script src='@routes.Assets.at("javascripts/app.js")'></script>
+  <script src='@routes.Assets.at("javascripts/services.js")'></script>
+  <script src='@routes.Assets.at("javascripts/datasource.js")'></script>
+  <script src='@routes.Assets.at("javascripts/controllers.js")'></script>
+  <script src='@routes.Assets.at("javascripts/filters.js")'></script>
+  <script src='@routes.Assets.at("javascripts/directives.js")'></script>
+</body>
+</html>
+
