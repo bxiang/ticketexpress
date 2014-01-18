@@ -11,14 +11,20 @@ This is a sample CRUD app. It uses:
 * Twitter Bootstrap
 * Live Reload/Guard
 
+
+Run
+---
 Start up Mongo DB server first, then "play run" to start the app. It runs at port 9000.
 
+JSON Api
+--------
+JSON format is used to communicate between client and server. To access the JSON Api:
+* http://localhost:9000/api/ticket
+* http://localhost:9000/api/user
 
-JSON format is used to communicate between client and server. To access the JSON API:
-	http://localhost:9000/api/ticket
-	http://localhost:9000/api/user
 
-
+Live Reload
+-----------
 ^ + Shift + I: open BatarangJS
 guard start: to run Live Reload
 
