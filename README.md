@@ -2,14 +2,14 @@ ticketexpress
 =============
 
 This is a sample CRUD app. It uses:
-	Scala
-	Play 2.10
-	Mongo DB
-	Casbah
-	Salat/play-plugins-salat
-	Angularjs
-	Twitter Bootstrap
-	Live Reload/Guard
+* Scala
+* Play 2.10
+* Mongo DB
+* Casbah
+* Salat/play-plugins-salat
+* Angularjs
+* Twitter Bootstrap
+* Live Reload/Guard
 
 Start up Mongo DB server first, then "play run" to start the app. It runs at port 9000.
 
