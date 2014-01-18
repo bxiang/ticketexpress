@@ -26,5 +26,6 @@ JSON format is used to communicate between client and server. To access the JSON
 Live Reload
 -----------
 ^ + Shift + I: open BatarangJS
+
 guard start: to run Live Reload
 
